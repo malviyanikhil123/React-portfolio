@@ -1304,7 +1304,6 @@
      }
 
      .mobile-nav-container {
-          background: rgba(242, 242, 242, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 25px;
@@ -1492,7 +1491,6 @@
      }
 
      .portfolio-submenu-container {
-          background: rgba(242, 242, 242, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-radius: 20px;
@@ -1681,8 +1679,6 @@
           align-items: center;
           flex-shrink: 0;
           opacity: 0;
-          height: 10px;
-          width: 10px;
           transform: translateY(20px);
           animation: fadeInUp 0.5s forwards;
           animation-delay: calc(0.1s * var(--i, 6));

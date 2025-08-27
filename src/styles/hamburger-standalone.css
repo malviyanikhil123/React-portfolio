@@ -1,0 +1,274 @@
+/*
+ * ENHANCED HAMBURGER MENU - MOBILE DEVICE COMPATIBLE
+ * Optimized for all mobile devices with better touch targets and accessibility
+ */
+
+.hamburger-standalone {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  z-index: 10001;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hamburger-standalone span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #FFFFFF;
+  border-radius: 1.5px;
+  margin: 2px 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transform-origin: center;
+}
+
+/* Enhanced Animation for Active State */
+.hamburger-standalone.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background-color: var(--accent-light);
+}
+
+.hamburger-standalone.active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0) rotate(180deg);
+}
+
+.hamburger-standalone.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--accent-light);
+}
+
+/* Show hamburger only on mobile and small screens */
+.hamburger-standalone {
+  display: none;
+}
+
+/* Enhanced Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+  .hamburger-standalone {
+    display: flex !important;
+  }
+}
+
+/* Standard Mobile Screens */
+@media screen and (max-width: 600px) {
+  .hamburger-standalone {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+
+  .hamburger-standalone span {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  .hamburger-standalone.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .hamburger-standalone.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+/* Small Mobile Screens */
+@media screen and (max-width: 480px) {
+  .hamburger-standalone {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+  }
+
+  .hamburger-standalone span {
+    width: 20px;
+    height: 2px;
+    margin: 1.5px 0;
+  }
+
+  .hamburger-standalone.active span:nth-child(1) {
+    transform: translateY(5.5px) rotate(45deg);
+  }
+
+  .hamburger-standalone.active span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
+  }
+}
+
+/* Extra Small Screens */
+@media screen and (max-width: 360px) {
+  .hamburger-standalone {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  .hamburger-standalone span {
+    width: 18px;
+    height: 2px;
+    margin: 1px 0;
+  }
+
+  .hamburger-standalone.active span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .hamburger-standalone.active span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+}
+
+/* Landscape Orientation Optimizations */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .hamburger-standalone {
+    top: 8px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Very Tall Screens (iPhone 12 Pro Max, etc.) */
+@media screen and (max-width: 600px) and (min-height: 800px) {
+  .hamburger-standalone {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* Short Screens */
+@media screen and (max-width: 600px) and (max-height: 600px) {
+  .hamburger-standalone {
+    top: 8px;
+    right: 10px;
+  }
+}
+
+/* Safe Area Support for Notched Devices */
+@supports (padding: max(0px)) {
+  @media screen and (max-width: 768px) {
+    .hamburger-standalone {
+      top: max(12px, env(safe-area-inset-top, 12px));
+      right: max(12px, env(safe-area-inset-right, 12px));
+    }
+  }
+}
+
+/* Enhanced Hover and Active States */
+.hamburger-standalone:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger-standalone:active {
+  transform: scale(0.95);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hamburger-standalone:hover span {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode Enhancements */
+.light-mode .hamburger-standalone {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.light-mode .hamburger-standalone:hover {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .hamburger-standalone span {
+  background-color: #000000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .hamburger-standalone:hover span {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Active State Styling */
+.hamburger-standalone.active {
+  background: rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hamburger-standalone.active span {
+  background-color: var(--accent-light);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode .hamburger-standalone.active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.light-mode .hamburger-standalone.active span {
+  background-color: var(--accent-dark);
+}
+
+/* High DPI Display Adjustments */
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hamburger-standalone {
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .light-mode .hamburger-standalone {
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+
+  .hamburger-standalone,
+  .hamburger-standalone span {
+    transition: none;
+  }
+}
+
+/* Focus States for Keyboard Navigation */
+.hamburger-standalone:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 2px;
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hamburger-standalone:hover {
+    transform: none;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .hamburger-standalone:active {
+    transform: scale(0.95);
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

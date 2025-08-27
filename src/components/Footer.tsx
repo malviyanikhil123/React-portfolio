@@ -11,17 +11,17 @@ const socialLinks: SocialLink[] = [
      {
           name: 'LinkedIn',
           url: 'https://www.linkedin.com/in/nikhil-malviya-80a6a0326/',
-          icon: '/src/assets/images/footer-icon/linkedin.png'
+          icon: '/footer-icon/linkedin.png'
      },
      {
           name: 'GitHub',
           url: 'https://github.com/malviyanikhil123',
-          icon: '/src/assets/images/footer-icon/GitHub.png'
+          icon: '/footer-icon/GitHub.png'
      },
      {
           name: 'Instagram',
           url: 'https://www.instagram.com/_nostalgic_nikhil/',
-          icon: '/src/assets/images/footer-icon/instagram.png'
+          icon: '/footer-icon/instagram.png'
      }
 ];
 
@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
                          <div className="footer-logo">
                               <img
                                    src={theme === 'dark' 
-                                        ? "/src/assets/images/logo/dark-mode-logo.png" 
-                                        : "/src/assets/images/logo/light-mode-logo.png"
+                                        ? "/logo/dark-mode-logo.png" 
+                                        : "/logo/light-mode-logo.png"
                                    }
                                    alt="Nikhil Malviya Logo"
                                    style={{ height: '130px' }}

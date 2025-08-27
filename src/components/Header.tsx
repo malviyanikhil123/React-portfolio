@@ -33,8 +33,8 @@ const Header: React.FC = () => {
                     <div className="logo" style={{ cursor: 'pointer' }} onClick={scrollToTop}>
                          <img
                               src={theme === 'dark'
-                                   ? "/src/assets/images/logo/dark-mode-logo.png"
-                                   : "/src/assets/images/logo/light-mode-logo.png"
+                                   ? "/logo/dark-mode-logo.png"
+                                   : "/logo/light-mode-logo.png"
                               }
                               alt="Nikhil Malviya Logo - Personal Signature"
                               style={{ height: '120px', verticalAlign: 'middle' }}
@@ -71,8 +71,8 @@ const Header: React.FC = () => {
                          <div className="mobile-logo" onClick={scrollToTop}>
                               <img
                                    src={theme === 'dark'
-                                        ? "/src/assets/images/logo/dark-mode-logo.png"
-                                        : "/src/assets/images/logo/light-mode-logo.png"
+                                        ? "/logo/dark-mode-logo.png"
+                                        : "/logo/light-mode-logo.png"
                                    }
                                    alt="Nikhil Malviya"
                               />

@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
 
      const handleDownloadResume = () => {
           showDownloadToast('Resume', () => {
-               downloadFile('/src/assets/resume/Nikhil_Malviya_FullStack_Developer_Resume.pdf', 'Nikhil_Malviya_Resume.pdf');
+               downloadFile('/resume/Nikhil_Malviya_FullStack_Developer_Resume.pdf', 'Nikhil_Malviya_Resume.pdf');
           });
      };
 

@@ -1219,15 +1219,6 @@
           transform: scale(1.05);
      }
 
-     [data-theme="dark"] .mobile-logo {
-          backdrop-filter: blur(20px);
-          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-          border: 1px solid rgba(182, 176, 159, 0.2);
-     }
-
-     [data-theme="dark"] .mobile-logo:hover {
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-     }
 
      .mobile-logo img {
           height: 80px;
@@ -1247,17 +1238,6 @@
 
      .mobile-theme-toggle:hover {
           transform: scale(1.05);
-     }
-
-     [data-theme="dark"] .mobile-theme-toggle {
-          background: rgba(10, 10, 10, 0.8);
-          backdrop-filter: blur(20px);
-          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-          border: 1px solid rgba(182, 176, 159, 0.2);
-     }
-
-     [data-theme="dark"] .mobile-theme-toggle:hover {
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
      }
 
      /* Hide desktop navigation and show hamburger menu */

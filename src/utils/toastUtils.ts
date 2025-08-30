@@ -97,10 +97,37 @@ export const showDownloadToast = (fileName: string, downloadFn: () => void) => {
  * Email sending notification
  */
 export const showEmailToast = {
-     sending: () => showLoadingToast('Sending your message...'),
-     success: (name: string) => showSuccessToast(`Thanks ${name}! Your message has been sent successfully. 🚀`, 4000),
-     error: () => showErrorToast('Failed to send message. Please try again or contact me directly.', 5000),
-     configError: () => showErrorToast('Email service not configured. Please contact directly.', 5000),
+     // Store the loading toast ID so we can dismiss it later
+     _loadingToastId: null as string | null,
+     
+     sending: function() {
+          this._loadingToastId = showLoadingToast('Sending your message...');
+          return this._loadingToastId;
+     },
+     
+     success: function(name: string) {
+          if (this._loadingToastId) {
+               toast.dismiss(this._loadingToastId);
+               this._loadingToastId = null;
+          }
+          return showSuccessToast(`Thanks ${name}! Your message has been sent successfully. 🚀`, 4000);
+     },
+     
+     error: function() {
+          if (this._loadingToastId) {
+               toast.dismiss(this._loadingToastId);
+               this._loadingToastId = null;
+          }
+          return showErrorToast('Failed to send message. Please try again or contact me directly.', 5000);
+     },
+     
+     configError: function() {
+          if (this._loadingToastId) {
+               toast.dismiss(this._loadingToastId);
+               this._loadingToastId = null;
+          }
+          return showErrorToast('Email service not configured. Please contact directly.', 5000);
+     }
 };
 
 /**

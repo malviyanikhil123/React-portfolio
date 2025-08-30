@@ -1988,6 +1988,16 @@ body:not(.light-mode) .tag-list li:hover img[title*="AWS"] {
      transform: translateY(-3px);
 }
 
+/* Styling for filled inputs */
+.form-group input:not(:placeholder-shown),
+.form-group textarea:not(:placeholder-shown) {
+     border-color: var(--primary-light);
+     background: rgba(26, 26, 26, 0.9);
+     color: var(--neutral-text-dark);
+     box-shadow: 0 8px 20px -6px rgba(182, 176, 159, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+     transform: translateY(-2px);
+}
+
 .form-group textarea {
      resize: vertical;
      min-height: 120px;
@@ -2007,9 +2017,7 @@ body:not(.light-mode) .tag-list li:hover img[title*="AWS"] {
 }
 
 .form-group input:focus+label,
-.form-group textarea:focus+label,
-.form-group input:not(:placeholder-shown)+label,
-.form-group textarea:not(:placeholder-shown)+label {
+.form-group textarea:focus+label {
      top: -14px;
      left: 24px;
      font-size: 0.9rem;
@@ -2019,6 +2027,21 @@ body:not(.light-mode) .tag-list li:hover img[title*="AWS"] {
      border-radius: 8px;
      font-weight: 600;
      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for filled input labels */
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:not(:placeholder-shown)+label {
+     top: -14px;
+     left: 24px;
+     font-size: 0.9rem;
+     color: var(--primary-light);
+     background: rgba(26, 26, 26, 0.95);
+     padding: 4px 12px;
+     border-radius: 8px;
+     font-weight: 600;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+     letter-spacing: 0.5px;
 }
 
 .input-icon {
@@ -2043,6 +2066,12 @@ body:not(.light-mode) .tag-list li:hover img[title*="AWS"] {
 .form-group input:focus~.input-icon svg,
 .form-group textarea:focus~.input-icon svg {
      stroke: var(--accent-dark);
+}
+
+/* Styling for icons when inputs are filled */
+.form-group input:not(:placeholder-shown)~.input-icon svg,
+.form-group textarea:not(:placeholder-shown)~.input-icon svg {
+     stroke: var(--primary-light);
 }
 
 .contact-btn {
@@ -2398,13 +2427,13 @@ footer::after {
    ============================================================================= */
 .theme-switch {
      --toggle-size: 28px;
-     --container-width: 3.625em;
-     --container-height: 1.5em;
+     --container-width: 2.525em;
+     --container-height: 1.175em;
      --container-radius: 6.25em;
      --container-light-bg: #3D7EAE;
      --container-night-bg: #1D1F2C;
-     --circle-container-diameter: 1.375em;
-     --sun-moon-diameter: 1.125em;
+     --circle-container-diameter: 0.975em;
+     --sun-moon-diameter: 0.925em;
      --sun-bg: #ECCA2F;
      --moon-bg: #C4C9D1;
      --spot-color: #959DB1;

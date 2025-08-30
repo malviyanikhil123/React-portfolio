@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
           setIsSubmitting(true);
           setSubmitStatus('idle');
 
-          // Show loading toast
+          // Show loading toast and get the toast ID
           showEmailToast.sending();
 
           try {
@@ -48,7 +48,6 @@ const Contact: React.FC = () => {
                          from_name: formData.name,
                          from_email: formData.email,
                          message: formData.message,
-                         to_name: 'Nikhil Malviya'
                     },
                     publicKey
                );
@@ -57,12 +56,14 @@ const Contact: React.FC = () => {
                const userName = formData.name;
                setFormData({ name: '', email: '', message: '' });
 
-               // Show success toast
+               // Show success toast (will dismiss loading toast automatically)
                showEmailToast.success(userName);
 
           } catch (error) {
                console.error('EmailJS error:', error);
                setSubmitStatus('error');
+               
+               // Show error toast (will dismiss loading toast automatically)
                showEmailToast.error();
           } finally {
                setIsSubmitting(false);

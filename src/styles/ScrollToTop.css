@@ -1,0 +1,85 @@
+/* ScrollToTop.css */
+/* Smooth transition when scrolling to top */
+body.scrolling-top {
+  scroll-behavior: smooth;
+}
+
+/* For Safari compatibility */
+html {
+  scroll-behavior: smooth;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent-light, #B6B09F);
+  color: var(--neutral-text-light, #000000);
+  border: 1px solid var(--border-light, #B6B09F);
+  box-shadow: var(--shadow-medium, 0 8px 32px rgba(0, 0, 0, 0.12));
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition-smooth, all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(182, 176, 159, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(182, 176, 159, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(182, 176, 159, 0);
+  }
+}
+
+.scroll-to-top:hover {
+  background-color: var(--accent-light, #EAE4D5);
+  transform: translateY(-3px);
+  animation: none;
+  transition: var(--transition-bounce, all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55));
+}
+
+.scroll-to-top svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.5;
+}
+
+/* Hide on mobile devices */
+@media screen and (max-width: 768px) {
+  .scroll-to-top {
+    display: none;
+  }
+}
+
+/* Add a light/dark theme support */
+[data-theme="dark"] .scroll-to-top,
+.scroll-to-top.dark-theme {
+  background-color: var(--primary-dark, #000000);
+  border: 1px solid var(--border-dark, #B6B09F);
+  color: var(--neutral-text-dark, #F2F2F2);
+}
+
+[data-theme="dark"] .scroll-to-top:hover,
+.scroll-to-top.dark-theme:hover {
+  background-color: var(--surface-dark, #1A1A1A);
+  color: var(--accent-light, #EAE4D5);
+}

@@ -35,7 +35,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
      };
 
      useEffect(() => {
+          // Set both class and data-theme for backward compatibility
           document.body.className = theme === 'light' ? 'light-mode' : '';
+          document.documentElement.setAttribute('data-theme', theme);
      }, [theme]);
 
      const value: ThemeContextType = {

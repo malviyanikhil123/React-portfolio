@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Notification from './components/Notification';
+import ScrollToTop from './components/ScrollToTop';
 import type { NotificationProps } from './types';
 
 // Import styles
@@ -53,6 +54,8 @@ function App() {
         </main>
 
         <Footer />
+
+        <ScrollToTop />
 
         <Notification
           message={notification.message}

@@ -14,20 +14,17 @@ export const useExperience = (joiningDate: Date = new Date('2025-05-19')): Exper
      );
 
      useEffect(() => {
-          // Function to update experience
-          const updateExperience = () => {
+          // Only update once per month
+          const now = new Date();
+          const currentMonth = `${now.getFullYear()}-${now.getMonth()}`;
+          const lastUpdateMonth = localStorage.getItem('experience-last-update-month');
+
+          if (lastUpdateMonth !== currentMonth) {
                const newExperience = calculateExperience(joiningDate);
                setExperience(newExperience);
-          };
-
-          // Update experience immediately
-          updateExperience();
-
-          // Set up interval to update every hour (3600000 milliseconds)
-          const intervalId = setInterval(updateExperience, 3600000);
-
-          // Cleanup interval on component unmount
-          return () => clearInterval(intervalId);
+               localStorage.setItem('experience-last-update-month', currentMonth);
+          }
+          // No interval needed, only update on mount if month changed
      }, [joiningDate]);
 
      return experience;

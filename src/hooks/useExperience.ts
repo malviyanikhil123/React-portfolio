@@ -4,7 +4,7 @@ import type { ExperienceResult } from '../utils/helpers';
 
 /**
  * Custom React hook to dynamically calculate and update experience
- * Updates every hour to keep the experience current
+ * Updates monthly to keep the experience current (since we only calculate by month/year)
  * @param joiningDate - The date when professional experience began (default: May 19, 2025)
  * @returns ExperienceResult object with current experience data
  */
@@ -14,7 +14,7 @@ export const useExperience = (joiningDate: Date = new Date('2025-05-19')): Exper
      );
 
      useEffect(() => {
-          // Only update once per month
+          // Update once per month since we only calculate by month/year
           const now = new Date();
           const currentMonth = `${now.getFullYear()}-${now.getMonth()}`;
           const lastUpdateMonth = localStorage.getItem('experience-last-update-month');
@@ -31,12 +31,13 @@ export const useExperience = (joiningDate: Date = new Date('2025-05-19')): Exper
 };
 
 /**
- * Alternative hook that updates experience more frequently (every minute)
- * Useful for testing or when you want real-time updates
+ * Alternative hook that updates experience more frequently (every hour)
+ * Useful for testing or when you want more frequent updates
+ * Since calculation is now month/year based, frequent updates are less critical
  * @param joiningDate - The date when professional experience began
  * @returns ExperienceResult object with current experience data
  */
-export const useRealTimeExperience = (joiningDate: Date = new Date('2025-05-19')): ExperienceResult => {
+export const useRealTimeExperience = (joiningDate: Date = new Date('2025-04-19')): ExperienceResult => {
      const [experience, setExperience] = useState<ExperienceResult>(() =>
           calculateExperience(joiningDate)
      );
@@ -51,8 +52,9 @@ export const useRealTimeExperience = (joiningDate: Date = new Date('2025-05-19')
           // Update experience immediately
           updateExperience();
 
-          // Set up interval to update every minute (60000 milliseconds)
-          const intervalId = setInterval(updateExperience, 60000);
+          // Set up interval to update every hour (3600000 milliseconds)
+          // Since we calculate by month/year, hourly updates are sufficient
+          const intervalId = setInterval(updateExperience, 3600000);
 
           // Cleanup interval on component unmount
           return () => clearInterval(intervalId);

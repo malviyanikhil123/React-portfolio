@@ -9,22 +9,19 @@ export interface ExperienceResult {
 
 /**
  * Calculates years of professional experience from a starting date
+ * Only considers months and years, ignoring specific days
  * @param joiningDate - The date when professional experience began (default: May 19, 2025)
  * @returns Object with formatted experience text, label, and full description
  */
 export const calculateExperience = (joiningDate: Date = new Date('2025-05-19')): ExperienceResult => {
      const currentDate = new Date();
 
-     // Calculate years and months
+     // Calculate years and months (ignoring specific days)
      const yearsDiff = currentDate.getFullYear() - joiningDate.getFullYear();
      const monthsDiff = currentDate.getMonth() - joiningDate.getMonth();
 
-     let totalMonths = yearsDiff * 12 + monthsDiff;
-
-     // Adjust for day of month
-     if (currentDate.getDate() < joiningDate.getDate()) {
-          totalMonths--;
-     }
+     // Calculate total months without day adjustment
+     const totalMonths = yearsDiff * 12 + monthsDiff;
 
      // Convert to years and remaining months
      const years = Math.floor(totalMonths / 12);
@@ -128,14 +125,21 @@ export const smoothScrollTo = (elementId: string, offset: number = 100): void =>
  * @param wait - Wait time in milliseconds
  * @returns Debounced function
  */
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
      func: T,
      wait: number
 ): ((...args: Parameters<T>) => void) => {
-     let timeout: number;
+     // Use ReturnType<typeof setTimeout> to correctly type the timeout across environments
+     let timeout: ReturnType<typeof setTimeout> | null = null;
      return (...args: Parameters<T>) => {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => func(...args), wait);
+          if (timeout !== null) {
+               clearTimeout(timeout);
+          }
+          timeout = setTimeout(() => {
+               // Call the provided function with the original arguments
+               // Parameters<T> preserves the argument types of func
+               func(...args);
+          }, wait);
      };
 };
 

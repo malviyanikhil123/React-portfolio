@@ -2,8 +2,9 @@ import React from 'react';
 import { useExperience } from '../hooks/useExperience';
 
 const About: React.FC = () => {
-     // Calculate experience from joining date using dynamic hook
-     const experienceData = useExperience(new Date('2025-05-19'));
+     // Calculate experience from joining date using dynamic hook (stable date object)
+     const joiningDate = new Date('2025-05-19');
+     const experienceData = useExperience(joiningDate);
 
      return (
           <section id="about" className="about-me">

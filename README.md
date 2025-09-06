@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with **Vite**, **React**, and **TypeScript**. This project showcases my professional experience, technical skills, and projects in an interactive and visually appealing format.
 
-🔗 **Live Demo**: [nikhilmalviya.vercel.app](https://nikhilmalviya.vercel.app/)
+🔗 **Live Demo**: [here](https://www.nikhilmalviya.me/)
 
 ## 🚀 Features
 
@@ -104,11 +104,10 @@ src/
 - [EmailJS](https://www.emailjs.com/) for the contact form functionality
 - [React Hot Toast](https://react-hot-toast.com/) for toast notifications
 - [Vercel](https://vercel.com/) for the seamless hosting and deployment
-- [Vercel](https://vercel.com/) for the seamless hosting and deployment
 
 ## 🚀 Deployment
 
-This project is deployed on Vercel. The live version can be accessed at [nikhilmalviya.vercel.app](https://nikhilmalviya.vercel.app/).
+This project is deployed on Vercel. The live version can be accessed at [here](https://www.nikhilmalviya.me/).
 
 ### Deployment Steps
 1. Push your changes to GitHub

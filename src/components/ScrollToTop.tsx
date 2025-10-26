@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../context/ThemeContext';
 import '../styles/ScrollToTop.css';
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { theme } = useTheme();
 
   // Show button when scrolling down 300px
   const toggleVisibility = () => {
@@ -19,13 +17,13 @@ const ScrollToTop: React.FC = () => {
   const scrollToTop = () => {
     // Add a temporary class to the body for nice transition
     document.body.classList.add('scrolling-top');
-    
+
     // Scroll to top
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-    
+
     // Remove the class after animation completes
     setTimeout(() => {
       document.body.classList.remove('scrolling-top');
@@ -41,19 +39,19 @@ const ScrollToTop: React.FC = () => {
 
   // Only render on desktop view (handled via CSS)
   return (
-    <button 
-      className={`scroll-to-top ${isVisible ? 'visible' : ''} ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`} 
+    <button
+      className={`scroll-to-top ${isVisible ? 'visible' : ''} dark-theme`}
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      <svg 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        strokeLinecap="round" 
+        strokeLinecap="round"
         strokeLinejoin="round"
         xmlns="http://www.w3.org/2000/svg"
       >

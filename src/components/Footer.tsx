@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '../context/ThemeContext';
 
 interface SocialLink {
      name: string;
@@ -26,7 +25,6 @@ const socialLinks: SocialLink[] = [
 ];
 
 const Footer: React.FC = () => {
-     const { theme } = useTheme();
      const currentYear = new Date().getFullYear();
 
      return (
@@ -35,10 +33,7 @@ const Footer: React.FC = () => {
                     <div className="footer-content">
                          <div className="footer-logo">
                               <img
-                                   src={theme === 'dark' 
-                                        ? "/logo/dark-mode-logo.png" 
-                                        : "/logo/light-mode-logo.png"
-                                   }
+                                   src="/logo/dark-mode-logo.png"
                                    alt="Nikhil Malviya Logo"
                                    style={{ height: '130px' }}
                               />

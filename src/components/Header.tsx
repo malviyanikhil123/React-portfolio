@@ -1,8 +1,6 @@
 import React from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useScrollDirection } from '../hooks/useScrollDirection';
-import { useTheme } from '../context/ThemeContext';
-import ThemeToggle from './ThemeToggle';
 import MobileNavMenu from './MobileNavMenu';
 import type { NavigationItem } from '../types';
 
@@ -16,7 +14,6 @@ const navigationItems: NavigationItem[] = [
 
 const Header: React.FC = () => {
      const { activeSection, scrollToSection } = useActiveSection();
-     const { theme } = useTheme();
      const scrollDirection = useScrollDirection();
 
      const handleNavClick = (sectionId: string) => {
@@ -32,10 +29,7 @@ const Header: React.FC = () => {
                <header className={`${scrollDirection === 'down' ? 'header-hidden' : 'header-visible'}`}>
                     <div className="logo" style={{ cursor: 'pointer' }} onClick={scrollToTop}>
                          <img
-                              src={theme === 'dark'
-                                   ? "/logo/dark-mode-logo.png"
-                                   : "/logo/light-mode-logo.png"
-                              }
+                              src="/logo/dark-mode-logo.png"
                               alt="Nikhil Malviya Logo - Personal Signature"
                               style={{ height: '120px', verticalAlign: 'middle' }}
                          />
@@ -61,24 +55,16 @@ const Header: React.FC = () => {
                               );
                          })}
                     </nav>
-
-                    <ThemeToggle />
                </header>
 
-               {/* Mobile Logo and Theme Toggle */}
+               {/* Mobile Logo */}
                <div className="mobile-controls">
                     <div className="test">
                          <div className="mobile-logo" onClick={scrollToTop}>
                               <img
-                                   src={theme === 'dark'
-                                        ? "/logo/dark-mode-logo.png"
-                                        : "/logo/light-mode-logo.png"
-                                   }
+                                   src="/logo/dark-mode-logo.png"
                                    alt="Nikhil Malviya"
                               />
-                         </div>
-                         <div className="mobile-theme-toggle">
-                              <ThemeToggle />
                          </div>
                     </div>
                </div>

@@ -5,7 +5,7 @@ export const skillsData: Skill[] = [
   { name: 'TypeScript', icon: '/images/skills-icon/typescript.png', title: 'TypeScript' },
   { name: 'JavaScript', icon: '/images/skills-icon/java-script.png', title: 'JavaScript (ES6+)' },
   { name: 'Python', icon: '/images/skills-icon/python.png', title: 'Python' },
-  { name: 'C++', icon: '/images/skills-icon/C++ (CPlusPlus).png', title: 'C++' },
+  // { name: 'C++', icon: '/images/skills-icon/C++ (CPlusPlus).png', title: 'C++' },
 
   // ⚛️ Frontend Development
   { name: 'React.js', icon: '/images/skills-icon/React.png', title: 'React.js' },

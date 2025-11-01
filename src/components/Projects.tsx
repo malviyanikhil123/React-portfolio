@@ -18,7 +18,7 @@ const projectsData: Project[] = [
           description: 'Developed a centralized SaaS platform enabling NGOs to connect with donors, volunteers, and communities. Implemented role-based dashboards, real-time analytics, in-app chat, and full-featured NGO panels for managing donations, inventory, events, and volunteer coordination.',
           tags: ['Node.js', 'React', 'MongoDB', 'Express', 'Socket.IO', 'JWT', 'Tailwind CSS'],
           categories: ['Full Stack', 'Backend', 'Frontend'],
-          githubUrl: 'https://github.com/malviyanikhil123'
+          githubUrl: 'https://github.com/malviyanikhil123/Ngoi-Saathi'
      },
      {
           id: '2',
